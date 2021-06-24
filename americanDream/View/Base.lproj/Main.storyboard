@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ohc-iX-PSX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Traduction-->
+        <scene sceneID="mcj-eb-wuc">
+            <objects>
+                <viewController id="MQq-EV-vAy" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rgO-jI-efy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="qoW-l3-5VR"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Traduction" image="repeat" catalog="system" id="ltm-qW-ltL"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kDU-9h-439" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="345" y="61"/>
+        </scene>
+        <!--Taux de change-->
+        <scene sceneID="NzM-9F-1r5">
+            <objects>
+                <viewController id="ryz-XJ-7mY" customClass="DollarViewController" customModule="americanDream" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zss-0f-PWV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kln-jM-FhX">
+                                <rect key="frame" x="20" y="685" width="374" height="128"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Kln-jM-FhX" secondAttribute="height" multiplier="187:64" id="Dkr-XD-1Xy"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="tappedButton:" destination="ryz-XJ-7mY" eventType="touchUpInside" id="lj7-vm-c9y"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Xlu-UL-ft7"/>
+                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                        <constraints>
+                            <constraint firstItem="Kln-jM-FhX" firstAttribute="bottom" secondItem="Xlu-UL-ft7" secondAttribute="bottom" id="Jac-B3-A2a"/>
+                            <constraint firstItem="Kln-jM-FhX" firstAttribute="leading" secondItem="Xlu-UL-ft7" secondAttribute="leading" constant="20" id="Xay-CM-fBV"/>
+                            <constraint firstItem="Xlu-UL-ft7" firstAttribute="trailing" secondItem="Kln-jM-FhX" secondAttribute="trailing" constant="20" id="kPi-Oe-B85"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Taux de change" image="dollarsign.circle" catalog="system" id="Snw-KX-BDW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rvq-jP-NcY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="343.47826086956525" y="-647.54464285714278"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="oNH-pt-2wS">
+            <objects>
+                <tabBarController id="ohc-iX-PSX" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cdR-ur-Ejk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="ryz-XJ-7mY" kind="relationship" relationship="viewControllers" id="a71-j1-CdB"/>
+                        <segue destination="MQq-EV-vAy" kind="relationship" relationship="viewControllers" id="mBW-0M-eVP"/>
+                        <segue destination="lxU-Oj-VGm" kind="relationship" relationship="viewControllers" id="Frk-Zm-pCs"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f06-BG-dIw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-543" y="61"/>
+        </scene>
+        <!--Météo-->
+        <scene sceneID="hQe-bk-T7m">
+            <objects>
+                <viewController id="lxU-Oj-VGm" customClass="WeatherViewController" customModule="americanDream" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yO4-yF-HH3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="4hI-mD-OMT">
+                                <rect key="frame" x="20" y="64" width="374" height="297"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hvg-SS-fWz">
+                                        <rect key="frame" x="0.0" y="0.0" width="186.5" height="297"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xHu-m4-Rtd">
+                                                <rect key="frame" x="0.0" y="0.0" width="186.5" height="297"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Vav-Nx-app">
+                                        <rect key="frame" x="187.5" y="0.0" width="186.5" height="297"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EM1-HI-V39">
+                                                <rect key="frame" x="0.0" y="0.0" width="186.5" height="164"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qAZ-G4-3dM">
+                                                <rect key="frame" x="0.0" y="164" width="186.5" height="133"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="4hI-mD-OMT" secondAttribute="height" multiplier="34:27" id="FPS-mY-WmS"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6me-sl-5H0">
+                                <rect key="frame" x="20" y="783" width="374" height="30"/>
+                                <color key="backgroundColor" red="0.028192764150000001" green="0.40486767890000003" blue="0.59670484069999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="tappedButton:" destination="lxU-Oj-VGm" eventType="touchUpInside" id="End-mT-R8E"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="NaL-uJ-2Bc"/>
+                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                        <constraints>
+                            <constraint firstItem="6me-sl-5H0" firstAttribute="bottom" secondItem="NaL-uJ-2Bc" secondAttribute="bottom" id="4YT-56-2rz"/>
+                            <constraint firstItem="NaL-uJ-2Bc" firstAttribute="trailing" secondItem="4hI-mD-OMT" secondAttribute="trailing" constant="20" id="LIB-uQ-033"/>
+                            <constraint firstItem="NaL-uJ-2Bc" firstAttribute="trailing" secondItem="6me-sl-5H0" secondAttribute="trailing" constant="20" id="SSg-Zu-jmO"/>
+                            <constraint firstItem="6me-sl-5H0" firstAttribute="leading" secondItem="NaL-uJ-2Bc" secondAttribute="leading" constant="20" id="fIz-Ph-Dx8"/>
+                            <constraint firstItem="4hI-mD-OMT" firstAttribute="top" secondItem="NaL-uJ-2Bc" secondAttribute="top" constant="20" id="vCT-HJ-2lg"/>
+                            <constraint firstItem="4hI-mD-OMT" firstAttribute="leading" secondItem="NaL-uJ-2Bc" secondAttribute="leading" constant="20" id="wSi-j0-HRO"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Météo" image="cloud.sun.fill" catalog="system" id="SHO-Ld-d3u"/>
+                    <connections>
+                        <outlet property="ImageView" destination="EM1-HI-V39" id="LUm-qp-iKw"/>
+                        <outlet property="descriptionLabel" destination="qAZ-G4-3dM" id="iab-xU-guV"/>
+                        <outlet property="temperatureLabel" destination="xHu-m4-Rtd" id="Yqu-04-2fU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5mZ-Xm-qCb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="343.47826086956525" y="784.82142857142856"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cloud.sun.fill" catalog="system" width="128" height="93"/>
+        <image name="dollarsign.circle" catalog="system" width="128" height="121"/>
+        <image name="repeat" catalog="system" width="128" height="99"/>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
