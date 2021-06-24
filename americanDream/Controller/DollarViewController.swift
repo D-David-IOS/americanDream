@@ -7,8 +7,20 @@
 
 import UIKit
 
-class DollarViewController: UIViewController {
+class DollarViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return rates.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return rates[row]
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -16,7 +28,14 @@ class DollarViewController: UIViewController {
     }
     
     @IBAction func tappedButton(_ sender: Any) {
-        DollarService.getDollar()
+        DollarService.getDollar() { succes, dollar in
+            if succes, let dollar = dollar {
+              
+            }
+            else {
+                print("error")
+            }
+        }
     }
     
 }

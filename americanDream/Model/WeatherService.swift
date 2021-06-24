@@ -8,14 +8,11 @@
 import Foundation
 
 class WeatherService {
-    private static let weatherUrl = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=New+York&appid=7559963d904acf8d9f2def0e3f053a79&units=metric")!
-    private static let weatherIconeUrl = URL(string: "http://openweathermap.org/img/wn/10d@2x.png")!
     
-    
-    static func getWeather(callback : @escaping (Bool, Weather?) -> Void){
+    static func getWeather(city : String, callback : @escaping (Bool, Weather?) -> Void){
         
         do {
-            var request = URLRequest(url: weatherUrl)
+            var request = URLRequest(url: URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=7559963d904acf8d9f2def0e3f053a79&units=metric")!)
             request.httpMethod = "POST"
             
             let session = URLSession(configuration: .default)

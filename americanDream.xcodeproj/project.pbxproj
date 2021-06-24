@@ -17,6 +17,8 @@
 		687D4A5326839DF700A6E536 /* Dollar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687D4A5226839DF100A6E536 /* Dollar.swift */; };
 		688949742683AD3B004592FB /* DollarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688949732683AD3B004592FB /* DollarViewController.swift */; };
 		688949762684BD88004592FB /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688949752684BD88004592FB /* WeatherService.swift */; };
+		6889497A2684D016004592FB /* usa.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 688949792684D016004592FB /* usa.jpg */; };
+		6889497C2684E323004592FB /* DollarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6889497B2684E323004592FB /* DollarService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		687D4A5226839DF100A6E536 /* Dollar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dollar.swift; sourceTree = "<group>"; };
 		688949732683AD3B004592FB /* DollarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DollarViewController.swift; sourceTree = "<group>"; };
 		688949752684BD88004592FB /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+		688949792684D016004592FB /* usa.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = usa.jpg; sourceTree = "<group>"; };
+		6889497B2684E323004592FB /* DollarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DollarService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 				687D4A4C26837E2000A6E536 /* Weather.swift */,
 				687D4A5226839DF100A6E536 /* Dollar.swift */,
 				688949752684BD88004592FB /* WeatherService.swift */,
+				6889497B2684E323004592FB /* DollarService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -104,6 +109,7 @@
 		687D4A4B26837E2000A6E536 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				688949792684D016004592FB /* usa.jpg */,
 				687D4A3D26837E0A00A6E536 /* Assets.xcassets */,
 				687D4A3426837E0800A6E536 /* AppDelegate.swift */,
 				687D4A3626837E0800A6E536 /* SceneDelegate.swift */,
@@ -171,6 +177,7 @@
 				687D4A4126837E0A00A6E536 /* LaunchScreen.storyboard in Resources */,
 				687D4A3E26837E0A00A6E536 /* Assets.xcassets in Resources */,
 				687D4A3C26837E0800A6E536 /* Main.storyboard in Resources */,
+				6889497A2684D016004592FB /* usa.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,6 +193,7 @@
 				688949742683AD3B004592FB /* DollarViewController.swift in Sources */,
 				687D4A5326839DF700A6E536 /* Dollar.swift in Sources */,
 				687D4A4D26837E2000A6E536 /* Weather.swift in Sources */,
+				6889497C2684E323004592FB /* DollarService.swift in Sources */,
 				687D4A3726837E0800A6E536 /* SceneDelegate.swift in Sources */,
 				688949762684BD88004592FB /* WeatherService.swift in Sources */,
 			);
