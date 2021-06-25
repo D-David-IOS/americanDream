@@ -60,10 +60,13 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aia-tm-rqk">
                                         <rect key="frame" x="0.0" y="172.5" width="320" height="86"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="36Z-1Y-qJV">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="10000.23" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="36Z-1Y-qJV">
                                                 <rect key="frame" x="20" y="26" width="175" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="continue"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="ryz-XJ-7mY" id="jbf-Pj-a0T"/>
+                                                </connections>
                                             </textField>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qbf-UF-XPt">
                                                 <rect key="frame" x="215" y="8" width="85" height="70"/>
@@ -131,16 +134,29 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Xlu-UL-ft7"/>
                         <color key="backgroundColor" systemColor="systemBlueColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Xlu-UL-ft7" firstAttribute="bottom" secondItem="0aJ-4D-x5r" secondAttribute="bottom" id="0bw-ZE-W5x"/>
                             <constraint firstItem="Xlu-UL-ft7" firstAttribute="trailing" secondItem="0aJ-4D-x5r" secondAttribute="trailing" id="XQN-QF-LKQ"/>
                             <constraint firstItem="0aJ-4D-x5r" firstAttribute="top" secondItem="Xlu-UL-ft7" secondAttribute="top" id="zZk-Rx-Yu3"/>
                             <constraint firstItem="0aJ-4D-x5r" firstAttribute="leading" secondItem="Xlu-UL-ft7" secondAttribute="leading" id="zl6-Pm-ocg"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="5SP-Qc-5Xk" appends="YES" id="qDE-Jj-iRo"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Taux de change" image="dollarsign.circle" catalog="system" id="Snw-KX-BDW"/>
+                    <connections>
+                        <outlet property="LocalDeviseTextField" destination="36Z-1Y-qJV" id="VXc-e9-6Dg"/>
+                        <outlet property="ratePickerView" destination="Qbf-UF-XPt" id="5mc-MA-v8f"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rvq-jP-NcY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="5SP-Qc-5Xk">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="ryz-XJ-7mY" id="ZDm-Ww-kTz"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="343.125" y="-648.75"/>
         </scene>

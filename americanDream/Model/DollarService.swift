@@ -8,37 +8,25 @@
 import Foundation
 
 class DollarService {
-    static func getDollar(callback : @escaping (Bool, NSDictionary?) -> Void){
-    do {
-        var request = URLRequest(url: URL(string: "http://data.fixer.io/api/latest?access_key=94566f6059ecbdc8361e202d0cebb6c4")!)
-        request.httpMethod = "POST"
-        
-        let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: request) { (data, response,error ) in
-            DispatchQueue.main.async{
-                if let data = data , error == nil {
-                    print("1516265")
-                    if let response = response as? HTTPURLResponse, response.statusCode == 200{
-                        print("321")
-                        let responseJSON : NSDictionary? = try? JSONSerialization.jsonObject(with: data) as? NSDictionary
-                        
-                        if let jsonResult = responseJSON {
-                            let array = jsonResult["rates"] as! NSDictionary
-                            callback(true, array)
-                            
-                        } else {
-                            callback(false,nil)
-                        }
-                        
-                    }  else {
-                        callback(false,nil)
+    static func getDollar(callback : @escaping (Bool, Dollar?) -> Void){
+        do {
+            var request = URLRequest(url: URL(string: "http://data.fixer.io/api/latest?access_key=94566f6059ecbdc8361e202d0cebb6c4")!)
+            request.httpMethod = "POST"
+            
+            URLSession.shared.dataTask(with: request) { (data, response, err) in
+                DispatchQueue.main.async{
+                    guard let data = data else { return }
+                    
+                    do {
+                        let dollar = try JSONDecoder().decode(Dollar.self, from: data)
+                        callback(true, dollar)
+                    } catch let jsonErr {
+                        print("Erreur de décodage", jsonErr)
                     }
-                }  else {
-                    callback(false,nil)
+                    
                 }
             }
+            .resume()
         }
-        task.resume()
     }
-}
 }

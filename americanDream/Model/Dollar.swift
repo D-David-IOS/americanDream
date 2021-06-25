@@ -7,6 +7,21 @@
 
 import Foundation
 
+struct Dollar : Decodable {
+    let rates : [String:Double]
+    
+    
+    public func convertionIntoDollar(number : Double, local : String, dict : NSDictionary) -> Double{
+            let base:Double = dict[local] as! Double
+            let euro = number / base
+            let usd:Double = dict["USD"] as! Double
+            return euro * usd
+        }
+ 
+}
+
+
+
 let rates = [
         "AED",
         "AFN",
