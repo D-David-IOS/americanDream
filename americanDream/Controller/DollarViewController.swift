@@ -8,10 +8,12 @@
 import UIKit
 
 class DollarViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
-
+    
     @IBOutlet weak var ratePickerView: UIPickerView!
     
     @IBOutlet weak var LocalDeviseTextField: UITextField!
+    
+    @IBOutlet weak var responseLabel: UILabel!
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -34,7 +36,7 @@ class DollarViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     override func viewDidLoad() {
         super.viewDidLoad()
         ratePickerView.selectRow(46, inComponent: 0, animated: true)
-
+        
     }
     
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
@@ -45,7 +47,7 @@ class DollarViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBAction func tappedButton(_ sender: Any) {
         DollarService.getDollar() { succes, dollar in
             if succes, let dollar = dollar {
-               
+                
                 let localDevise = self.LocalDeviseTextField.text
                 let moneyIndex = self.ratePickerView.selectedRow(inComponent: 0)
                 let money = rates[moneyIndex]
@@ -53,16 +55,28 @@ class DollarViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                 print(localDevise!)
                 print(money)
                 
-                let result = Double(localDevise!)
                 
-                let abc = dollar.convertionIntoDollar(number : result!, local : money, dict : dollar.rates as NSDictionary)
+                guard   let result = Double(localDevise!) else {
+                    self.presentAlert(with: "Veuillez entrer un nombre valide")
+                    return
+                }
                 
-                print("le résultat de \(result!) \(money) en dollar est de \(Double(round(100*(abc))/100))$ !")
+                let abc = dollar.convertionIntoDollar(number : result, local : money, dict : dollar.rates as NSDictionary)
+                
+                self.responseLabel.text = "\(result) \(money) vaut actuellement \(Double(round(100*(abc))/100))$ !"
+                
             }
             else {
-                print("error")
+                self.presentAlert(with: "erreur de décodage")
             }
         }
     }
     
+    
+    private func presentAlert(with error: String){
+        let alertVC = UIAlertController(title: "Erreur", message: error, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertVC.addAction(action)
+        present(alertVC, animated: true, completion: nil)
+    }
 }

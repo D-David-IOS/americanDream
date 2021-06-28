@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		68427161268A634A00BEA674 /* DollarServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68427160268A634A00BEA674 /* DollarServiceTests.swift */; };
+		687B076726877F0F00FB9418 /* TraductionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687B076626877F0F00FB9418 /* TraductionService.swift */; };
+		687B076926877F2600FB9418 /* Traduction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687B076826877F2600FB9418 /* Traduction.swift */; };
+		687B076B2687809900FB9418 /* TranslateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687B076A2687809900FB9418 /* TranslateController.swift */; };
 		687D4A3526837E0800A6E536 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687D4A3426837E0800A6E536 /* AppDelegate.swift */; };
 		687D4A3726837E0800A6E536 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687D4A3626837E0800A6E536 /* SceneDelegate.swift */; };
 		687D4A3C26837E0800A6E536 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 687D4A3A26837E0800A6E536 /* Main.storyboard */; };
@@ -21,7 +25,23 @@
 		6889497C2684E323004592FB /* DollarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6889497B2684E323004592FB /* DollarService.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		68427163268A634A00BEA674 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 687D4A2926837E0800A6E536 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 687D4A3026837E0800A6E536;
+			remoteInfo = americanDream;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		6842715E268A634A00BEA674 /* DollarServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DollarServiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		68427160268A634A00BEA674 /* DollarServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DollarServiceTests.swift; sourceTree = "<group>"; };
+		68427162268A634A00BEA674 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		687B076626877F0F00FB9418 /* TraductionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraductionService.swift; sourceTree = "<group>"; };
+		687B076826877F2600FB9418 /* Traduction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Traduction.swift; sourceTree = "<group>"; };
+		687B076A2687809900FB9418 /* TranslateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateController.swift; sourceTree = "<group>"; };
 		687D4A3126837E0800A6E536 /* americanDream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = americanDream.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		687D4A3426837E0800A6E536 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		687D4A3626837E0800A6E536 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +59,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6842715B268A634A00BEA674 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		687D4A2E26837E0800A6E536 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -49,10 +76,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6842715F268A634A00BEA674 /* DollarServiceTests */ = {
+			isa = PBXGroup;
+			children = (
+				68427160268A634A00BEA674 /* DollarServiceTests.swift */,
+				68427162268A634A00BEA674 /* Info.plist */,
+			);
+			path = DollarServiceTests;
+			sourceTree = "<group>";
+		};
 		687D4A2826837E0700A6E536 = {
 			isa = PBXGroup;
 			children = (
 				687D4A3326837E0800A6E536 /* americanDream */,
+				6842715F268A634A00BEA674 /* DollarServiceTests */,
 				687D4A3226837E0800A6E536 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				687D4A3126837E0800A6E536 /* americanDream.app */,
+				6842715E268A634A00BEA674 /* DollarServiceTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -80,10 +118,12 @@
 		687D4A4826837E1600A6E536 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				687D4A4C26837E2000A6E536 /* Weather.swift */,
 				687D4A5226839DF100A6E536 /* Dollar.swift */,
-				688949752684BD88004592FB /* WeatherService.swift */,
 				6889497B2684E323004592FB /* DollarService.swift */,
+				687D4A4C26837E2000A6E536 /* Weather.swift */,
+				688949752684BD88004592FB /* WeatherService.swift */,
+				687B076826877F2600FB9418 /* Traduction.swift */,
+				687B076626877F0F00FB9418 /* TraductionService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -93,6 +133,7 @@
 			children = (
 				687D4A5026837E2000A6E536 /* WeatherViewController.swift */,
 				688949732683AD3B004592FB /* DollarViewController.swift */,
+				687B076A2687809900FB9418 /* TranslateController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -120,6 +161,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		6842715D268A634A00BEA674 /* DollarServiceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68427167268A634A00BEA674 /* Build configuration list for PBXNativeTarget "DollarServiceTests" */;
+			buildPhases = (
+				6842715A268A634A00BEA674 /* Sources */,
+				6842715B268A634A00BEA674 /* Frameworks */,
+				6842715C268A634A00BEA674 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				68427164268A634A00BEA674 /* PBXTargetDependency */,
+			);
+			name = DollarServiceTests;
+			productName = DollarServiceTests;
+			productReference = 6842715E268A634A00BEA674 /* DollarServiceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		687D4A3026837E0800A6E536 /* americanDream */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 687D4A4526837E0A00A6E536 /* Build configuration list for PBXNativeTarget "americanDream" */;
@@ -146,6 +205,10 @@
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
+					6842715D268A634A00BEA674 = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 687D4A3026837E0800A6E536;
+					};
 					687D4A3026837E0800A6E536 = {
 						CreatedOnToolsVersion = 12.5;
 					};
@@ -165,11 +228,19 @@
 			projectRoot = "";
 			targets = (
 				687D4A3026837E0800A6E536 /* americanDream */,
+				6842715D268A634A00BEA674 /* DollarServiceTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		6842715C268A634A00BEA674 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		687D4A2F26837E0800A6E536 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -184,12 +255,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6842715A268A634A00BEA674 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68427161268A634A00BEA674 /* DollarServiceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		687D4A2D26837E0800A6E536 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				687B076926877F2600FB9418 /* Traduction.swift in Sources */,
+				687B076726877F0F00FB9418 /* TraductionService.swift in Sources */,
 				687D4A3526837E0800A6E536 /* AppDelegate.swift in Sources */,
 				687D4A5126837E2000A6E536 /* WeatherViewController.swift in Sources */,
+				687B076B2687809900FB9418 /* TranslateController.swift in Sources */,
 				688949742683AD3B004592FB /* DollarViewController.swift in Sources */,
 				687D4A5326839DF700A6E536 /* Dollar.swift in Sources */,
 				687D4A4D26837E2000A6E536 /* Weather.swift in Sources */,
@@ -200,6 +282,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		68427164268A634A00BEA674 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 687D4A3026837E0800A6E536 /* americanDream */;
+			targetProxy = 68427163268A634A00BEA674 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		687D4A3A26837E0800A6E536 /* Main.storyboard */ = {
@@ -221,6 +311,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		68427165268A634A00BEA674 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = DollarServiceTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.daviddebehogne.DollarServiceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/americanDream.app/americanDream";
+			};
+			name = Debug;
+		};
+		68427166268A634A00BEA674 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = DollarServiceTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.daviddebehogne.DollarServiceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/americanDream.app/americanDream";
+			};
+			name = Release;
+		};
 		687D4A4326837E0A00A6E536 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -376,6 +504,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		68427167268A634A00BEA674 /* Build configuration list for PBXNativeTarget "DollarServiceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68427165268A634A00BEA674 /* Debug */,
+				68427166268A634A00BEA674 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		687D4A2C26837E0800A6E536 /* Build configuration list for PBXProject "americanDream" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
