@@ -9,34 +9,17 @@
 
 import XCTest
 
-var fakeDollar = DollarFakeResponseData()
-
 class DollarServiceTests: XCTestCase {
     
     func testGetDollarShouldGoodCallbackAndGoodDollar(){
-        print("123")
-        let sut = MockHTTPClient()
-        let request = URLRequest(url: URL(string: "www.google.com")!)
+        let fakeCall = MockHTTPClient()
         
-        sut.getDollar(request: request ) { bool, dollar in
+        fakeCall.getDollar() { bool, dollar in
             print("**********")
             XCTAssertTrue(bool)
             XCTAssertNotNil(dollar)
         }
 
     }
-      
-    func testGetDollarShouldError(){
-        print("123")
-        let sut = MockHTTPClient()
-        let request = URLRequest(url: URL(string: "www.google.com")!)
-        
-        sut.getDollar(request: request ) { bool, dollar in
-            print("**********")
-            XCTAssertFalse(bool)
-            XCTAssertNil(dollar)
-        }
-
-    }
- 
+    
 }

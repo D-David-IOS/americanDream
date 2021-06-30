@@ -21,7 +21,7 @@ struct Dollar : Decodable {
 }
 
 
-
+//all money
 let rates = [
         "AED",
         "AFN",

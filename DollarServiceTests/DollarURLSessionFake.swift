@@ -11,8 +11,8 @@ import Foundation
 
 class MockHTTPClient : HTTPClient{
     
-    func getDollar(request: URLRequest, callback: @escaping (Bool, Dollar?) -> Void) {
-       
+    func getDollar( callback: @escaping (Bool, Dollar?) -> Void) {
+
         guard let url = Bundle(for: MockHTTPClient.self).url(forResource: "Dollar", withExtension: "json"),
               let data = try? Data(contentsOf: url) else {
             return callback(false,nil)

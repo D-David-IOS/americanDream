@@ -8,7 +8,7 @@
 import Foundation
 
 protocol HTTPClient {
-    func getDollar(request: URLRequest, callback: @escaping (Bool, Dollar?) -> Void)
+    func getDollar( callback: @escaping (Bool, Dollar?) -> Void)
 }
 
 class DollarService : HTTPClient {
@@ -17,14 +17,14 @@ class DollarService : HTTPClient {
     
     public var task : URLSessionDataTask?
     
-    func getDollar(request: URLRequest, callback: @escaping (Bool, Dollar?) -> Void) {
+    func getDollar( callback: @escaping (Bool, Dollar?) -> Void) {
         do {
            let request = createDollarRequest()
             
             task?.cancel()
             task = session.dataTask(with: request) { (data, response, err) in
                 DispatchQueue.main.async{
-                    guard let data = data else { return }
+                    guard let data = data else { return callback(false,nil) }
                     
                     do {
                         let dollar = try JSONDecoder().decode(Dollar.self, from: data)

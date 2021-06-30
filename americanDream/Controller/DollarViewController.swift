@@ -47,7 +47,7 @@ class DollarViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     
     @IBAction func tappedButton(_ sender: Any) {
-        dollar.getDollar(request : dollar.createDollarRequest()) { succes, dollar in
+        dollar.getDollar() { succes, dollar in
             if succes, let dollar = dollar {
                 
                 let localDevise = self.LocalDeviseTextField.text
