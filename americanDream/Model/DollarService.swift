@@ -7,13 +7,22 @@
 
 import Foundation
 
-class DollarService {
-    static func getDollar(callback : @escaping (Bool, Dollar?) -> Void){
+protocol HTTPClient {
+    func getDollar(request: URLRequest, callback: @escaping (Bool, Dollar?) -> Void)
+}
+
+class DollarService : HTTPClient {
+    
+    private var session = URLSession(configuration: .default)
+    
+    public var task : URLSessionDataTask?
+    
+    func getDollar(request: URLRequest, callback: @escaping (Bool, Dollar?) -> Void) {
         do {
-            var request = URLRequest(url: URL(string: "http://data.fixer.io/api/latest?access_key=94566f6059ecbdc8361e202d0cebb6c4")!)
-            request.httpMethod = "POST"
+           let request = createDollarRequest()
             
-            URLSession.shared.dataTask(with: request) { (data, response, err) in
+            task?.cancel()
+            task = session.dataTask(with: request) { (data, response, err) in
                 DispatchQueue.main.async{
                     guard let data = data else { return }
                     
@@ -26,7 +35,16 @@ class DollarService {
                     
                 }
             }
-            .resume()
+            task?.resume()
         }
+        
     }
+    
+    
+    public func createDollarRequest() -> URLRequest {
+        var request = URLRequest(url: URL(string: "http://data.fixer.io/api/latest?access_key=94566f6059ecbdc8361e202d0cebb6c4")!)
+        request.httpMethod = "POST"
+        return request
+    }
+    
 }

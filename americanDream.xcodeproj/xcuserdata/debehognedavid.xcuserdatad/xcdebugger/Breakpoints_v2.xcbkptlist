@@ -16,5 +16,128 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "07AB47F6-0C26-4674-B4AA-9DE2F55F8547"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DollarServiceTests/DollarServiceTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "DollarServiceTests"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "07AB47F6-0C26-4674-B4AA-9DE2F55F8547 - d90892cba5669a01"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DollarServiceTests.DollarServiceTests.__allocating_init(invocation: Swift.Optional&lt;__C.NSInvocation&gt;) -&gt; DollarServiceTests.DollarServiceTests"
+                  moduleName = "DollarServiceTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/debehognedavid/Documents/americanDream/DollarServiceTests/DollarServiceTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  uuid = "07AB47F6-0C26-4674-B4AA-9DE2F55F8547 - 22a2c31e34966f44"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DollarServiceTests.DollarServiceTests.init(invocation: Swift.Optional&lt;__C.NSInvocation&gt;) -&gt; DollarServiceTests.DollarServiceTests"
+                  moduleName = "DollarServiceTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/debehognedavid/Documents/americanDream/DollarServiceTests/DollarServiceTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "119">
+               </Location>
+               <Location
+                  uuid = "07AB47F6-0C26-4674-B4AA-9DE2F55F8547 - 297cff106c209646"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DollarServiceTests.DollarServiceTests.__allocating_init(selector: ObjectiveC.Selector) -&gt; DollarServiceTests.DollarServiceTests"
+                  moduleName = "DollarServiceTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/debehognedavid/Documents/americanDream/DollarServiceTests/DollarServiceTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  uuid = "07AB47F6-0C26-4674-B4AA-9DE2F55F8547 - 1b3bc5a962cf806c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DollarServiceTests.DollarServiceTests.init(selector: ObjectiveC.Selector) -&gt; DollarServiceTests.DollarServiceTests"
+                  moduleName = "DollarServiceTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/debehognedavid/Documents/americanDream/DollarServiceTests/DollarServiceTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "119">
+               </Location>
+               <Location
+                  uuid = "07AB47F6-0C26-4674-B4AA-9DE2F55F8547 - eedb6f0fcdca7948"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DollarServiceTests.DollarServiceTests.__allocating_init() -&gt; DollarServiceTests.DollarServiceTests"
+                  moduleName = "DollarServiceTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/debehognedavid/Documents/americanDream/DollarServiceTests/DollarServiceTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  uuid = "07AB47F6-0C26-4674-B4AA-9DE2F55F8547 - f19c27878455dc5f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DollarServiceTests.DollarServiceTests.init() -&gt; DollarServiceTests.DollarServiceTests"
+                  moduleName = "DollarServiceTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/debehognedavid/Documents/americanDream/DollarServiceTests/DollarServiceTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "93">
+               </Location>
+               <Location
+                  uuid = "07AB47F6-0C26-4674-B4AA-9DE2F55F8547 - 7db7994a86809f06"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DollarServiceTests.DollarServiceTests.__deallocating_deinit"
+                  moduleName = "DollarServiceTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/debehognedavid/Documents/americanDream/DollarServiceTests/DollarServiceTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

@@ -15,6 +15,8 @@ class DollarViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     @IBOutlet weak var responseLabel: UILabel!
     
+    let dollar = DollarService()
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -45,7 +47,7 @@ class DollarViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     
     @IBAction func tappedButton(_ sender: Any) {
-        DollarService.getDollar() { succes, dollar in
+        dollar.getDollar(request : dollar.createDollarRequest()) { succes, dollar in
             if succes, let dollar = dollar {
                 
                 let localDevise = self.LocalDeviseTextField.text

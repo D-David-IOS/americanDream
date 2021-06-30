@@ -8,7 +8,7 @@
 import Foundation
 
 struct Dollar : Decodable {
-    let rates : [String:Double]
+    var rates : [String:Double]
     
     
     public func convertionIntoDollar(number : Double, local : String, dict : NSDictionary) -> Double{
