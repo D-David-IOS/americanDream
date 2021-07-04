@@ -1,0 +1,10 @@
+{
+    "data": {
+        "translations": [
+            {
+                "translatedText": "I am translated",
+                "detectedSourceLanguage": "fr"
+            }
+        ]
+    }
+}

@@ -49,13 +49,14 @@ class DollarViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
     }
     
-    // add a tapGestureRecogniser to the view, we can hide the keyboard
+    // add a tapGestureRecogniser to the view
+    // the user can hide the keyboard with a tap everywhere
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         LocalDeviseTextField.resignFirstResponder()
     }
     
     // When user Validates
-    // convert his curretn monney into USD money
+    // convert his current money into USD money
     @IBAction func tappedButton(_ sender: Any) {
         dollar.getDollar(request : dollar.createDollarRequest()) { succes, dollar in
             
@@ -82,6 +83,11 @@ class DollarViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         }
     }
     
+    
+}
+
+
+extension DollarViewController {
     // create an alert, the parameter "with error" is the error message
     private func presentAlert(with error: String){
         let alertVC = UIAlertController(title: "Erreur", message: error, preferredStyle: .alert)

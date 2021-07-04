@@ -79,13 +79,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GnR-Yw-hj9">
                                         <rect key="frame" x="0.0" y="258.5" width="320" height="86.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CJd-tQ-1CI">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="86.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o68-24-pgd">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o68-24-pgd">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="86.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -95,13 +89,9 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="o68-24-pgd" secondAttribute="trailing" id="3wU-sH-7vO"/>
-                                            <constraint firstAttribute="trailing" secondItem="CJd-tQ-1CI" secondAttribute="trailing" id="DV3-un-LS0"/>
                                             <constraint firstAttribute="bottom" secondItem="o68-24-pgd" secondAttribute="bottom" id="HL9-cD-Sfp"/>
                                             <constraint firstItem="o68-24-pgd" firstAttribute="leading" secondItem="GnR-Yw-hj9" secondAttribute="leading" id="KZM-bG-IeB"/>
                                             <constraint firstItem="o68-24-pgd" firstAttribute="top" secondItem="GnR-Yw-hj9" secondAttribute="top" id="Nsc-DD-dX5"/>
-                                            <constraint firstAttribute="bottom" secondItem="CJd-tQ-1CI" secondAttribute="bottom" id="VQW-a1-D9U"/>
-                                            <constraint firstItem="CJd-tQ-1CI" firstAttribute="top" secondItem="GnR-Yw-hj9" secondAttribute="top" id="kpT-r5-kPv"/>
-                                            <constraint firstItem="CJd-tQ-1CI" firstAttribute="leading" secondItem="GnR-Yw-hj9" secondAttribute="leading" id="p5W-Ia-afV"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hZx-eF-sK3">
@@ -149,7 +139,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Traduction" image="repeat" catalog="system" id="ltm-qW-ltL"/>
                     <connections>
-                        <outlet property="frenchText" destination="tpg-Dt-u8S" id="osA-Ln-eLy"/>
+                        <outlet property="text" destination="tpg-Dt-u8S" id="Qpm-xo-kSe"/>
                         <outlet property="traductionText" destination="o68-24-pgd" id="eqG-Up-sTy"/>
                     </connections>
                 </viewController>
@@ -449,7 +439,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5mZ-Xm-qCb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="343.125" y="783.75"/>
+            <point key="canvasLocation" x="345" y="828"/>
         </scene>
     </scenes>
     <resources>
