@@ -25,7 +25,6 @@
 		688949762684BD88004592FB /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688949752684BD88004592FB /* WeatherService.swift */; };
 		6889497A2684D016004592FB /* usa.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 688949792684D016004592FB /* usa.jpg */; };
 		6889497C2684E323004592FB /* DollarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6889497B2684E323004592FB /* DollarService.swift */; };
-		68AFE602268BA41F008C190A /* DollarURLSessionFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AFE601268BA41F008C190A /* DollarURLSessionFake.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +60,6 @@
 		688949752684BD88004592FB /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		688949792684D016004592FB /* usa.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = usa.jpg; sourceTree = "<group>"; };
 		6889497B2684E323004592FB /* DollarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DollarService.swift; sourceTree = "<group>"; };
-		68AFE601268BA41F008C190A /* DollarURLSessionFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DollarURLSessionFake.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,10 +84,9 @@
 			isa = PBXGroup;
 			children = (
 				68427160268A634A00BEA674 /* DollarServiceTests.swift */,
-				68427162268A634A00BEA674 /* Info.plist */,
-				68427168268A64F300BEA674 /* Dollar.json */,
 				6842716A268A656F00BEA674 /* DollarFakeResponseData.swift */,
-				68AFE601268BA41F008C190A /* DollarURLSessionFake.swift */,
+				68427168268A64F300BEA674 /* Dollar.json */,
+				68427162268A634A00BEA674 /* Info.plist */,
 			);
 			path = DollarServiceTests;
 			sourceTree = "<group>";
@@ -270,7 +267,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				68427161268A634A00BEA674 /* DollarServiceTests.swift in Sources */,
-				68AFE602268BA41F008C190A /* DollarURLSessionFake.swift in Sources */,
 				6842716B268A656F00BEA674 /* DollarFakeResponseData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,10 +7,11 @@
 
 import Foundation
 
+// the type Dollar is decodable, here we need only the rates from the response
 struct Dollar : Decodable {
     var rates : [String:Double]
     
-    
+    // convert a local Money to USD money with rates
     public func convertionIntoDollar(number : Double, local : String, dict : NSDictionary) -> Double{
             let base:Double = dict[local] as! Double
             let euro = number / base
