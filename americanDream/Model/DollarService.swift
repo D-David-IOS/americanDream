@@ -19,8 +19,9 @@ class DollarService {
     // This function return a callback to the contoller with 2 parameters
     // Bool : will be true if succes, false if an error is present or incorrect data
     // Dollar : contains the dictionnary of all current money, nil if error
-    func getDollar(request : URLRequest, callback: @escaping (Bool, Dollar?) -> Void) {
+    func getDollar(callback: @escaping (Bool, Dollar?) -> Void) {
         do {
+            let request = createDollarRequest()
             var task : URLSessionDataTask?
             
             task?.cancel()

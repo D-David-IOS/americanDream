@@ -22,9 +22,14 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var maubeugeImageLabel: UIImageView!
     @IBOutlet weak var maubeugeDescription: UILabel!
     
+    // instance of WeatherService
+    let weather = WeatherService(weatherSession : URLSession(configuration: .default), iconSession: URLSession(configuration: .default))
     
+    // when the tab weather is selected the view will appear
     override func viewDidLoad() {
-        WeatherService.getWeather(city : "New+York") { succes, weather in
+        
+        // the weather in New York
+        weather.getWeather(request : weather.createWeatherRequest(city: "New+York")) { succes, weather in
             if succes, let weather = weather {
                 self.descriptionLabel.text = weather.idConditions(id: weather.id)
                 self.temperatureLabel.text = "ici il fait \(String(weather.temp))°C !"
@@ -32,11 +37,12 @@ class WeatherViewController: UIViewController {
                 self.villeLabel.text = "Bienvenue à \(weather.city)"
             }
             else {
-                print("error")
+                self.presentAlert(with: "la requête à échouée")
             }
         }
         
-        WeatherService.getWeather(city : "Maubeuge") { succes, weather in
+        // the Weather in Maubeuge
+        weather.getWeather(request : weather.createWeatherRequest(city: "maubeuge")) { succes, weather in
             if succes, let weather = weather {
                 self.maubeugeDescription.text = weather.idConditions(id: weather.id)
                 self.maubeugeTempLabel.text = "il fait \(String(weather.temp))°C !"
@@ -44,10 +50,21 @@ class WeatherViewController: UIViewController {
                 self.maubeugeLabel.text = "Chez vous à \(weather.city)"
             }
             else {
-                print("error")
+                self.presentAlert(with: "la requête à échouée")
             }
         }
         
     }
 
+}
+
+// create a simple alert with presentAlert(with error : "text here")
+extension WeatherViewController {
+    // create an alert, the parameter "with error" is the error message
+    private func presentAlert(with error: String){
+        let alertVC = UIAlertController(title: "Erreur", message: error, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertVC.addAction(action)
+        present(alertVC, animated: true, completion: nil)
+    }
 }

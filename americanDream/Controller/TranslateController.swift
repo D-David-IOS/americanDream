@@ -27,8 +27,10 @@ class TranslateController: UIViewController {
     // convert the text in english
     @IBAction func tappedTranslate(_ sender: Any) {
 
+        // we have to encore all this characters else the request fail
         let encodedString = text.text!.addingPercentEncoding(withAllowedCharacters: CharacterSet(charactersIn: "<>!*();^:@&=+$,|/?%#[]{}~’\" ").inverted)
         
+        // ask to api google translate to return the text translated
         traduction.getTranslate(request: traduction.createDollarRequest(sentence: encodedString!)) { succes, translate in
             guard succes, let translate = translate else {
                 self.presentAlert(with: "la requête à échouée")
@@ -39,6 +41,8 @@ class TranslateController: UIViewController {
     }
 }
 
+
+// create a simple alert with presentAlert(with error : "text here")
 extension TranslateController {
     // create an alert, the parameter "with error" is the error message
     private func presentAlert(with error: String){

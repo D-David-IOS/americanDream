@@ -58,7 +58,7 @@ class DollarViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     // When user Validates
     // convert his current money into USD money
     @IBAction func tappedButton(_ sender: Any) {
-        dollar.getDollar(request : dollar.createDollarRequest()) { succes, dollar in
+        dollar.getDollar() { succes, dollar in
             
             guard succes, let dollar = dollar else {
                 self.presentAlert(with: "la requête à échoué")
@@ -86,7 +86,7 @@ class DollarViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
 }
 
-
+// create a simple alert with presentAlert(with error : "text here")
 extension DollarViewController {
     // create an alert, the parameter "with error" is the error message
     private func presentAlert(with error: String){

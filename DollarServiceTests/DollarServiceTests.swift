@@ -20,7 +20,6 @@ class DollarServiceTests: XCTestCase {
     func test_getDollarAllShouldBeOkShouldReturnCorrectCallback() {
 
         //given
-        let request = URLRequest(url: URL(string: "https://www.example.com")!)
         let response = fakeResponse.responseOK
         let jsonData = fakeResponse.CorrectData
        
@@ -34,7 +33,7 @@ class DollarServiceTests: XCTestCase {
         
         let client = DollarService(session: URLSession(configuration: configuration))
 
-        client.getDollar(request: request) { success, dollar in
+        client.getDollar() { success, dollar in
             print("---------------------")
             XCTAssertTrue(success)
             XCTAssertNotNil(dollar)
@@ -47,7 +46,6 @@ class DollarServiceTests: XCTestCase {
     func test_getDollarIncorrectDataShouldFail() {
 
         //given
-        let request = URLRequest(url: URL(string: "https://www.example.com")!)
         let response = fakeResponse.responseOK
         let jsonData = fakeResponse.IncorrectData
        
@@ -61,7 +59,7 @@ class DollarServiceTests: XCTestCase {
         
         let client = DollarService(session: URLSession(configuration: configuration))
 
-        client.getDollar(request: request) { success, dollar in
+        client.getDollar() { success, dollar in
             print("---------------------")
             XCTAssertFalse(success)
             XCTAssertNil(dollar)
@@ -73,7 +71,6 @@ class DollarServiceTests: XCTestCase {
     func test_getDollarErrorPresentShouldFail() {
 
         //given
-        let request = URLRequest(url: URL(string: "https://www.example.com")!)
         let JSONData = fakeResponse.IncorrectData
         let response = fakeResponse.responseOK
         let error = fakeResponse.error
@@ -88,7 +85,7 @@ class DollarServiceTests: XCTestCase {
         
         let client = DollarService(session: URLSession(configuration: configuration))
 
-        client.getDollar(request: request) { success, dollar in
+        client.getDollar() { success, dollar in
             print("---------------------")
             XCTAssertFalse(success)
             XCTAssertNil(dollar)
@@ -100,7 +97,6 @@ class DollarServiceTests: XCTestCase {
     func test_getDollarWrongResponseShouldFail() {
 
         //given
-        let request = URLRequest(url: URL(string: "https://www.example.com")!)
         let JSONData = fakeResponse.IncorrectData
         let response = fakeResponse.responseKO
        
@@ -114,7 +110,7 @@ class DollarServiceTests: XCTestCase {
         
         let client = DollarService(session: URLSession(configuration: configuration))
 
-        client.getDollar(request: request) { success, dollar in
+        client.getDollar() { success, dollar in
             print("---------------------")
             XCTAssertFalse(success)
             XCTAssertNil(dollar)

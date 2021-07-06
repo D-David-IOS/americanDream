@@ -7,6 +7,11 @@
 
 import Foundation
 
+// in the struct weather we need only 4 properties
+// city : the city where we want to see the Weather
+// id : is the condition, we can switch it in the function idConditions
+// temp : the current temperature
+// imageData : the icon with clouds, sun, rain etc....
 struct Weather {
     
     var city : String
@@ -14,6 +19,7 @@ struct Weather {
     var temp : Double
     var imageData : Data
     
+    // return a String with the conditions, "clouds", "sun with clouds" etc...
     func idConditions(id : Int) -> String {
         switch id {
         case 200...202:
