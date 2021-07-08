@@ -18,6 +18,13 @@ class DollarViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     // this response will appear when user validate
     @IBOutlet weak var responseLabel: UILabel!
     
+    // Validate Button
+    @IBOutlet weak var validateButton: UIButton!
+    
+    // Appears when user tap validate
+    @IBOutlet weak var activityLoading: UIActivityIndicatorView!
+    
+    
     // an instance of DollarService
     let dollar = DollarService(session : URLSession(configuration: .default))
     
@@ -45,6 +52,8 @@ class DollarViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     // by default "EUR" is selected in the pickView
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityLoading.isHidden = true
+        validateButton.layer.cornerRadius = 30
         ratePickerView.selectRow(46, inComponent: 0, animated: true)
         
     }
@@ -58,8 +67,11 @@ class DollarViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     // When user Validates
     // convert his current money into USD money
     @IBAction func tappedButton(_ sender: Any) {
+        activityLoading.isHidden = false
+        validateButton.isHidden = true
+  
         dollar.getDollar() { succes, dollar in
-            
+      
             guard succes, let dollar = dollar else {
                 self.presentAlert(with: "la requête à échoué")
                 return
@@ -73,6 +85,8 @@ class DollarViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             // if the user enter an invalide number, present an alert to the user
             guard let result = Double(localDevise!) else {
                 self.presentAlert(with: "Veuillez entrer un nombre valide")
+                self.activityLoading.isHidden = true
+                self.validateButton.isHidden = false
                 return
             }
             
@@ -80,6 +94,8 @@ class DollarViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             
             self.responseLabel.text = "\(result) \(money) vaut actuellement \(Double(round(100*(convertion))/100))$ !"
 
+            self.activityLoading.isHidden = true
+            self.validateButton.isHidden = false
         }
     }
     
