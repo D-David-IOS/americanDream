@@ -10,7 +10,7 @@ import Foundation
 class TranslateService {
     
     // injection dependency for UnitTests
-    let session : URLSession
+    private let session : URLSession
     
     init(session : URLSession){
         self.session = session
@@ -48,7 +48,7 @@ class TranslateService {
     }
     
     // create a request for the api "googleTranslate"
-    public func createDollarRequest(sentence : String) -> URLRequest {
+    public func createTranslateRequest(sentence : String) -> URLRequest {
         var request = URLRequest(url: URL(string : "https://translation.googleapis.com/language/translate/v2?key=AIzaSyB3NVU3O1EMszpcwD43pb0Mo0MIU7TSMj0&q="+"\(sentence)"+"&target=en&format=text")!)
         request.httpMethod = "POST"
         return request

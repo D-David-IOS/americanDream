@@ -34,7 +34,6 @@ class DollarServiceTests: XCTestCase {
         let client = DollarService(session: URLSession(configuration: configuration))
 
         client.getDollar() { success, dollar in
-            print("---------------------")
             XCTAssertTrue(success)
             XCTAssertNotNil(dollar)
             XCTAssertEqual(fakeResponse.rates, dollar!.rates)
@@ -60,7 +59,6 @@ class DollarServiceTests: XCTestCase {
         let client = DollarService(session: URLSession(configuration: configuration))
 
         client.getDollar() { success, dollar in
-            print("---------------------")
             XCTAssertFalse(success)
             XCTAssertNil(dollar)
             expectation.fulfill()
@@ -86,7 +84,6 @@ class DollarServiceTests: XCTestCase {
         let client = DollarService(session: URLSession(configuration: configuration))
 
         client.getDollar() { success, dollar in
-            print("---------------------")
             XCTAssertFalse(success)
             XCTAssertNil(dollar)
             expectation.fulfill()
@@ -111,7 +108,6 @@ class DollarServiceTests: XCTestCase {
         let client = DollarService(session: URLSession(configuration: configuration))
 
         client.getDollar() { success, dollar in
-            print("---------------------")
             XCTAssertFalse(success)
             XCTAssertNil(dollar)
             expectation.fulfill()

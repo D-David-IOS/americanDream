@@ -10,7 +10,7 @@ import Foundation
 class DollarService {
     
     // injection dependency for UnitTests
-    let session : URLSession
+    private let session : URLSession
     
     init(session : URLSession){
         self.session = session
@@ -19,7 +19,7 @@ class DollarService {
     // This function return a callback to the contoller with 2 parameters
     // Bool : will be true if succes, false if an error is present or incorrect data
     // Dollar : contains the dictionnary of all current money, nil if error
-    func getDollar(callback: @escaping (Bool, Dollar?) -> Void) {
+    public func getDollar(callback: @escaping (Bool, Dollar?) -> Void) {
         do {
             let request = createDollarRequest()
             var task : URLSessionDataTask?
@@ -51,7 +51,7 @@ class DollarService {
     }
     
     // create a request for the api "fixer"
-    public func createDollarRequest() -> URLRequest {
+    private func createDollarRequest() -> URLRequest {
         var request = URLRequest(url: URL(string: "http://data.fixer.io/api/latest?access_key=94566f6059ecbdc8361e202d0cebb6c4")!)
         request.httpMethod = "POST"
         return request

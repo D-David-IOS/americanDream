@@ -22,7 +22,7 @@ class TranslateController: UIViewController {
     @IBOutlet weak var TranslateButton: UIButton!
     
     // an instance of TranslateService
-    let traduction = TranslateService(session : URLSession(configuration: .default))
+    let translate = TranslateService(session : URLSession(configuration: .default))
     
     // add a tapGestureRecogniser to the view
     // the user can hide the keyboard with a tap everywhere
@@ -45,7 +45,7 @@ class TranslateController: UIViewController {
         let encodedString = text.text!.addingPercentEncoding(withAllowedCharacters: CharacterSet(charactersIn: "<>!*();^:@&=+$,|/?%#[]{}~’\" ").inverted)
         
         // ask to api google translate to return the text translated
-        traduction.getTranslate(request: traduction.createDollarRequest(sentence: encodedString!)) { succes, translate in
+        translate.getTranslate(request: translate.createTranslateRequest(sentence: encodedString!)) { succes, translate in
             guard succes, let translate = translate else {
                 self.presentAlert(with: "la requête à échouée")
                 self.activityLoading.isHidden = true
