@@ -19,7 +19,6 @@ class TranslateServiceTests: XCTestCase {
     func test_getTranslateAllShouldBeOkShouldReturnCorrectCallback() {
 
         //given
-        let request = URLRequest(url: URL(string: "https://www.example.com")!)
         let response = fakeResponse.responseOK
         let jsonData = fakeResponse.CorrectData
        
@@ -33,8 +32,7 @@ class TranslateServiceTests: XCTestCase {
         
         let client = TranslateService(session: URLSession(configuration: configuration))
 
-        client.getTranslate(request: request) { success, translate in
-            print("---------------------")
+        client.getTranslate(request: client.createTranslateRequest(sentence: "test1")) { success, translate in
             XCTAssertTrue(success)
             XCTAssertNotNil(translate)
             XCTAssertEqual(fakeResponse.data, translate!.returnTranslate())
@@ -46,7 +44,6 @@ class TranslateServiceTests: XCTestCase {
     func test_getTranslateIncorrectDataShouldFail() {
 
         //given
-        let request = URLRequest(url: URL(string: "https://www.example.com")!)
         let response = fakeResponse.responseOK
         let jsonData = fakeResponse.IncorrectData
        
@@ -60,8 +57,7 @@ class TranslateServiceTests: XCTestCase {
         
         let client = TranslateService(session: URLSession(configuration: configuration))
 
-        client.getTranslate(request: request) { success, translate in
-            print("---------------------")
+        client.getTranslate(request: client.createTranslateRequest(sentence: "une+phrase")) { success, translate in
             XCTAssertFalse(success)
             XCTAssertNil(translate)
             expectation.fulfill()
@@ -72,7 +68,6 @@ class TranslateServiceTests: XCTestCase {
     func test_getTranslateErrorPresentShouldFail() {
 
         //given
-        let request = URLRequest(url: URL(string: "https://www.example.com")!)
         let JSONData = fakeResponse.IncorrectData
         let response = fakeResponse.responseOK
         let error = fakeResponse.error
@@ -87,8 +82,7 @@ class TranslateServiceTests: XCTestCase {
         
         let client = TranslateService(session: URLSession(configuration: configuration))
 
-        client.getTranslate(request: request) { success, translate in
-            print("---------------------")
+        client.getTranslate(request: client.createTranslateRequest(sentence: "une+traduction")) { success, translate in
             XCTAssertFalse(success)
             XCTAssertNil(translate)
             expectation.fulfill()
@@ -99,7 +93,6 @@ class TranslateServiceTests: XCTestCase {
     func test_getTranslateWrongResponseShouldFail() {
 
         //given
-        let request = URLRequest(url: URL(string: "https://www.example.com")!)
         let JSONData = fakeResponse.IncorrectData
         let response = fakeResponse.responseKO
        
@@ -113,8 +106,32 @@ class TranslateServiceTests: XCTestCase {
         
         let client = TranslateService(session: URLSession(configuration: configuration))
 
-        client.getTranslate(request: request) { success, translate in
-            print("---------------------")
+        client.getTranslate(request: client.createTranslateRequest(sentence: "un+autre+test")) { success, translate in
+            XCTAssertFalse(success)
+            XCTAssertNil(translate)
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1)
+    }
+
+    
+    func test_getTranslateNoDataShouldFail() {
+
+        //given
+        let response = fakeResponse.responseKO
+        let error = fakeResponse.error
+       
+        TestURLProtocol.loadingHandler = { request in
+            return ( nil, response,  error)
+        }
+        
+        let expectation = XCTestExpectation(description: "Loading")
+        let configuration = URLSessionConfiguration.ephemeral
+        configuration.protocolClasses = [TestURLProtocol.self]
+        
+        let client = TranslateService(session: URLSession(configuration: configuration))
+
+        client.getTranslate(request: client.createTranslateRequest(sentence: "un+test")) { success, translate in
             XCTAssertFalse(success)
             XCTAssertNil(translate)
             expectation.fulfill()

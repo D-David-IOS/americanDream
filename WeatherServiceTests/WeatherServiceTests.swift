@@ -107,7 +107,6 @@ class WeatherServiceTests: XCTestCase {
     func test_getWeatherAllShouldBeOkReturnGoodCallback() {
         
         //given
-        let request = URLRequest(url: URL(string: "https://www.example.com")!)
         let response = fakeResponse.responseOK
         let jsonData = fakeResponse.CorrectData
        
@@ -123,7 +122,7 @@ class WeatherServiceTests: XCTestCase {
         let expectation = XCTestExpectation(description: "Loading")
         
         // When
-        client.getWeather(request: request) { success, weather in
+        client.getWeather(request: client.createWeatherRequest(city: "New+York")) { success, weather in
             // Then
             XCTAssertTrue(success)
             XCTAssertNotNil(weather)
@@ -139,7 +138,6 @@ class WeatherServiceTests: XCTestCase {
     func test_getWeatherErrorPresentReturnCallbackFalseNil() {
 
         //given
-        let request = URLRequest(url: URL(string: "https://www.example.com")!)
         let response = fakeResponse.responseOK
         let error = fakeResponse.error
        
@@ -156,7 +154,7 @@ class WeatherServiceTests: XCTestCase {
         
         
         // When
-        client.getWeather(request: request) { success, weather in
+        client.getWeather(request: client.createWeatherRequest(city: "Maubeuge")) { success, weather in
             // Then
             XCTAssertFalse(success)
             XCTAssertNil(weather)
@@ -168,7 +166,6 @@ class WeatherServiceTests: XCTestCase {
     func test_getWeatherIncorrectDataReturnCallbackFalseNil() {
 
         //given
-        let request = URLRequest(url: URL(string: "https://www.example.com")!)
         let response = fakeResponse.responseOK
         let jsonData = fakeResponse.IncorrectData
        
@@ -184,7 +181,7 @@ class WeatherServiceTests: XCTestCase {
         let expectation = XCTestExpectation(description: "Loading")
         
         // When
-        client.getWeather(request: request) { success, weather in
+        client.getWeather(request: client.createIconRequest(icone: "abc")) { success, weather in
             // Then
             XCTAssertFalse(success)
             XCTAssertNil(weather)
@@ -196,7 +193,6 @@ class WeatherServiceTests: XCTestCase {
     func test_getWeatherResponse500SoReturnCallbackFalseNil() {
  
         // Given
-        let request = URLRequest(url: URL(string: "https://www.example.com")!)
         let response = fakeResponse.responseKO
         let jsonData = fakeResponse.CorrectData
        
@@ -212,7 +208,7 @@ class WeatherServiceTests: XCTestCase {
         let expectation = XCTestExpectation(description: "Loading")
         
         // When
-        client.getWeather(request: request) { success, weather in
+        client.getWeather(request: client.createWeatherRequest(city: "Tokyo")) { success, weather in
             // Then
             XCTAssertFalse(success)
             XCTAssertNil(weather)
@@ -220,6 +216,46 @@ class WeatherServiceTests: XCTestCase {
         }
         wait(for: [expectation], timeout: 1)
     }
+    
+    func test_getWeatherAllShouldBeOkButNoIconSoCallbackNil() {
+        
+        //given
+        let response = fakeResponse.responseOK
+        let jsonData = fakeResponse.CorrectData
+       
+        TestURLProtocolWeather.loadingHandler = { request in
+            return ( jsonData, response,  nil)
+        }
+        
+        let configurationWeather = URLSessionConfiguration.ephemeral
+        configurationWeather.protocolClasses = [TestURLProtocolWeather.self]
+  
+        //given
+        let response2 = fakeResponse.responseOK
+        let error2 = fakeResponse.error
+        
+        TestURLProtocolIcon.loadingHandler = { request in
+            return ( nil, response2,  error2)
+        }
+        
+        let configurationIcon = URLSessionConfiguration.ephemeral
+        configurationIcon.protocolClasses = [TestURLProtocolIcon.self]
+  
+        let client = WeatherService(weatherSession: URLSession(configuration: configurationWeather), iconSession: URLSession(configuration: configurationIcon ) )
+        
+        let expectation = XCTestExpectation(description: "Loading")
+        
+        // When
+        client.getWeather(request: client.createWeatherRequest(city: "New+York")) { success, weather in
+            // Then
+            XCTAssertFalse(success)
+            XCTAssertNil(weather)
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1)
+    }
+    
+    
 }
 
 
@@ -227,6 +263,38 @@ class WeatherServiceTests: XCTestCase {
 
 // fake urlProtocol
 class TestURLProtocolWeather: URLProtocol {
+    override class func canInit(with request: URLRequest) -> Bool {
+        return true
+    }
+    
+    override class func canonicalRequest(for request: URLRequest) -> URLRequest {
+        return request
+    }
+    
+    static var loadingHandler: ((URLRequest) -> (Data?, HTTPURLResponse,  Error?))?
+    
+    override func startLoading() {
+        guard let handler = TestURLProtocolWeather.loadingHandler else {
+            XCTFail("Loading handler is not set.")
+            return
+        }
+        let (data, response,  error) = handler(request)
+        if let data = data {
+            client?.urlProtocol(self, didLoad: data)
+            client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed)
+            client?.urlProtocolDidFinishLoading(self)
+        }
+        else {
+            client?.urlProtocol(self, didFailWithError: error!)
+        }
+    }
+    
+    override func stopLoading() {}
+}
+
+
+// fake urlProtocol
+class TestURLProtocolIcon: URLProtocol {
     override class func canInit(with request: URLRequest) -> Bool {
         return true
     }

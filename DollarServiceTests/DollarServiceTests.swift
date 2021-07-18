@@ -11,6 +11,7 @@ import XCTest
 
 var fakeResponse = DollarFakeResponseData()
 
+
 class DollarServiceTests: XCTestCase {
     
     override func tearDown() {
@@ -37,6 +38,16 @@ class DollarServiceTests: XCTestCase {
             XCTAssertTrue(success)
             XCTAssertNotNil(dollar)
             XCTAssertEqual(fakeResponse.rates, dollar!.rates)
+            
+            // test function conversionIntoDollar
+            let test1 = dollar?.convertionIntoDollar(number: 1000.23, local: "EUR", dict: fakeResponse.rates as NSDictionary)
+            
+            let test2 = dollar?.convertionIntoDollar(number: 10000, local: "JPY", dict: fakeResponse.rates as NSDictionary)
+            
+            XCTAssertEqual(test1, 1000.23 * 1.192243 )
+            XCTAssertEqual(test2, (10000 / 131.838858) * 1.192243 )
+
+            
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 1)
@@ -114,6 +125,31 @@ class DollarServiceTests: XCTestCase {
         }
         wait(for: [expectation], timeout: 1)
     }
+ 
+    func test_getDollarNoDataShouldFail() {
+
+        //given
+        let response = fakeResponse.responseKO
+        let error = fakeResponse.error
+       
+        TestURLProtocol.loadingHandler = { request in
+            return ( nil, response,  error)
+        }
+        
+        let expectation = XCTestExpectation(description: "Loading")
+        let configuration = URLSessionConfiguration.ephemeral
+        configuration.protocolClasses = [TestURLProtocol.self]
+        
+        let client = DollarService(session: URLSession(configuration: configuration))
+
+        client.getDollar() { success, dollar in
+            XCTAssertFalse(success)
+            XCTAssertNil(dollar)
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1)
+    }
+    
 }
 
 // fake urlProtocol
