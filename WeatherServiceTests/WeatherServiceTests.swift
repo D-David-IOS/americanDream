@@ -15,6 +15,7 @@ class WeatherServiceTests: XCTestCase {
     
     override func tearDown() {
         TestURLProtocolWeather.loadingHandler = nil
+        TestURLProtocolIcon.loadingHandler = nil
     }
 
     func test_getImageAllShouldBeOkShouldReturnCorrectData() {
@@ -130,6 +131,20 @@ class WeatherServiceTests: XCTestCase {
             XCTAssertEqual("Maubeuge", weather?.city)
             XCTAssertEqual(804, weather?.id)
             XCTAssertEqual(20.15, weather?.temp)
+            XCTAssertEqual(weather?.idConditions(id: 804), "Temps nuageux")
+            XCTAssertEqual(weather?.idConditions(id: 214), "Violents orages")
+            XCTAssertEqual(weather?.idConditions(id: 201), "Pluies avec des orages")
+            XCTAssertEqual(weather?.idConditions(id: 210), "Risques d'orages")
+            XCTAssertEqual(weather?.idConditions(id: 231), "Orage avec bruine")
+            XCTAssertEqual(weather?.idConditions(id: 312), "Temps nuageux avec pluies")
+            XCTAssertEqual(weather?.idConditions(id: 503), "Temps ensoleillé avec pluies")
+            XCTAssertEqual(weather?.idConditions(id: 511), "Pluies avec risque de neige")
+            XCTAssertEqual(weather?.idConditions(id: 521), "Fortes pluies")
+            XCTAssertEqual(weather?.idConditions(id: 620), "Risques de neiges")
+            XCTAssertEqual(weather?.idConditions(id: 755), "Risques de brouillards")
+            XCTAssertEqual(weather?.idConditions(id: 800), "Ciel dégagé")
+            // the switch is exhaustive, default value never happends
+            XCTAssertEqual(weather?.idConditions(id: 13545), "Conditions inconnues")
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 1)
@@ -306,7 +321,7 @@ class TestURLProtocolIcon: URLProtocol {
     static var loadingHandler: ((URLRequest) -> (Data?, HTTPURLResponse,  Error?))?
     
     override func startLoading() {
-        guard let handler = TestURLProtocolWeather.loadingHandler else {
+        guard let handler = TestURLProtocolIcon.loadingHandler else {
             XCTFail("Loading handler is not set.")
             return
         }

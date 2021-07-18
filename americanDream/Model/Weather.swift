@@ -47,7 +47,7 @@ struct Weather {
         case 801...804:
             return "Temps nuageux"
         default:
-            return "Ciel dégagé"
+            return "Conditions inconnues"
         }
     }
     
